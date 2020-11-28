@@ -144,7 +144,7 @@ assert (a ^ b) != a
 assert (~a) != a</stringProp>
         </JSR223Sampler>
         <hashTree/>
-        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler" enabled="true">
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler" enabled="false">
           <stringProp name="scriptLanguage">groovy</stringProp>
           <stringProp name="parameters"></stringProp>
           <stringProp name="filename"></stringProp>
@@ -157,6 +157,107 @@ assert &apos;Order ID 1001&apos; =~ &apos;Order ID (.+?)&apos;
 assert &apos;Order ID 1001&apos; =~ &apos;Order ID [0-9]{4}&apos;
 //Uncomment below line to see the error
 assert &apos;Order ID PROD-1001&apos; =~ &apos;Order ID ^[a-zA-z]{4}-[0-9]{4}&apos;</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler if/else" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">def a, b
+
+Random random = new Random()
+
+a = random.next(2)
+b = random.next(3)
+
+if (a &gt; b) {
+	println a + &apos; is greater than &apos; + b
+}
+else if (a == b) {
+	println a + &apos; is equals &apos; + b
+}
+else {
+	println a + &apos; is lesser than &apos; + b
+}
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler switch" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">//Reg Ex
+def a = &quot;Hello Groovy&quot;
+
+switch (a) {
+	case ~/Hello G.*/:
+		println &quot;Contains G&quot;
+		break
+	default:
+		println &quot;Just a String&quot;
+}
+
+//Range
+def b = 12
+
+switch (b) {
+	case 11..15:
+		println &quot;Within the range&quot;
+		break
+	default:
+		println &quot;Integer&quot;		
+}
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler for" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">//for
+for (int i = 1; i &lt;= 10; i++){
+	println i //prints new line
+}
+
+//for in
+def fruits = [&apos;apple&apos;, &apos;orange&apos;, &apos;papaya&apos;]
+
+for(def fruit in fruits){
+	println fruit
+}
+
+//for in maps
+def students = [&quot;Ram&quot; : 98, &quot;Ganesh&quot; : 100, &quot;Siva&quot; : 95];
+
+for(def student in students){
+	println student
+}
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler while" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">//while
+int c = 1
+
+while (c &lt;= 10){
+	println c
+	c++
+}
+assert c == 11
+
+//do while
+do {
+    println c
+    c++
+} while(c &lt;= 20)
+assert c == 21</stringProp>
         </JSR223Sampler>
         <hashTree/>
       </hashTree>
