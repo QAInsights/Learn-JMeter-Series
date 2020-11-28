@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">// This is single line comment
+/*
+ * This is multi line comments
+ * ONE
+ * TWO
+ */
+String u
+u = &quot;Test&quot;
+println u
+// def
+// String
+// var
+int
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">int a = 10
+int b = 6
+def ans
+
+ans = a + b
+println &apos;Addition &apos; + ans
+
+ans = a - b
+println &apos;Subtraction &apos; + ans
+
+ans = a * b
+println &apos;Multiplication &apos; + ans
+
+ans = a / b
+println &apos;Division &apos; + ans
+
+ans = a % b
+println &apos;Reminder &apos; + ans
+
+ans = a ** b
+println &apos;Power &apos;  + ans
+
+ans = a++ + b
+println &apos;Post Increment &apos; + ans
+assert a == 11
+
+ans = ++a + b
+println &apos;Pre Increment &apos; + ans
+
+// Binary Operators += -= *= /= %= **=</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">int a = 10
+int b = 6
+
+assert (a + b) == 16
+//assert a == b
+assert a &gt; b
+assert a &gt;= b
+
+b = 11
+assert a &lt; b
+assert a &lt;= b
+
+b = 10
+assert a === b
+
+b = 6
+assert a !== b</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">//The logical &quot;not&quot; has a higher priority than the logical &quot;and&quot;.
+//The logical &quot;and&quot; has a higher priority than the logical &quot;or&quot;.
+
+assert !false
+assert true || false
+assert true &amp;&amp; true
+
+//Uncomment below line to see the error
+//assert false
+
+assert true</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">//Applies on a byte or an int
+
+int a = 0b00001111; //15
+int b = 0b00000110; //6
+int ans
+ans = a + b
+println ans
+assert (a &amp; a) == a
+assert (a | b) == a
+assert (a ^ b) != a
+assert (~a) != a</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">assert &apos;JMeter&apos; =~ &apos;Meter&apos; 
+assert &apos;JMeter&apos; =~ &apos;^J&apos;
+assert &apos;JMeter&apos; =~ &apos;J*&apos;
+assert &apos;JMeter&apos; =~ &apos;r$&apos;
+assert &apos;Order ID 1001&apos; =~ &apos;Order ID (.+?)&apos;
+assert &apos;Order ID 1001&apos; =~ &apos;Order ID [0-9]{4}&apos;
+//Uncomment below line to see the error
+assert &apos;Order ID PROD-1001&apos; =~ &apos;Order ID ^[a-zA-z]{4}-[0-9]{4}&apos;</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
