@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="P_USERNAME" elementType="Argument">
+            <stringProp name="Argument.name">P_USERNAME</stringProp>
+            <stringProp name="Argument.value">admin</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">// This is single line comment
+/*
+ * This is multi line comments
+ * ONE
+ * TWO
+ */
+String u
+u = &quot;Test&quot;
+println u
+// def
+// String
+// var
+int
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">int a = 10
+int b = 6
+def ans
+
+ans = a + b
+println &apos;Addition &apos; + ans
+
+ans = a - b
+println &apos;Subtraction &apos; + ans
+
+ans = a * b
+println &apos;Multiplication &apos; + ans
+
+ans = a / b
+println &apos;Division &apos; + ans
+
+ans = a % b
+println &apos;Reminder &apos; + ans
+
+ans = a ** b
+println &apos;Power &apos;  + ans
+
+ans = a++ + b
+println &apos;Post Increment &apos; + ans
+assert a == 11
+
+ans = ++a + b
+println &apos;Pre Increment &apos; + ans
+
+// Binary Operators += -= *= /= %= **=</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">int a = 10
+int b = 6
+
+assert (a + b) == 16
+//assert a == b
+assert a &gt; b
+assert a &gt;= b
+
+b = 11
+assert a &lt; b
+assert a &lt;= b
+
+b = 10
+assert a === b
+
+b = 6
+assert a !== b</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">//The logical &quot;not&quot; has a higher priority than the logical &quot;and&quot;.
+//The logical &quot;and&quot; has a higher priority than the logical &quot;or&quot;.
+
+assert !false
+assert true || false
+assert true &amp;&amp; true
+
+//Uncomment below line to see the error
+//assert false
+
+assert true</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">//Applies on a byte or an int
+
+int a = 0b00001111; //15
+int b = 0b00000110; //6
+int ans
+ans = a + b
+println ans
+assert (a &amp; a) == a
+assert (a | b) == a
+assert (a ^ b) != a
+assert (~a) != a</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">assert &apos;JMeter&apos; =~ &apos;Meter&apos; 
+assert &apos;JMeter&apos; =~ &apos;^J&apos;
+assert &apos;JMeter&apos; =~ &apos;J*&apos;
+assert &apos;JMeter&apos; =~ &apos;r$&apos;
+assert &apos;Order ID 1001&apos; =~ &apos;Order ID (.+?)&apos;
+assert &apos;Order ID 1001&apos; =~ &apos;Order ID [0-9]{4}&apos;
+//Uncomment below line to see the error
+assert &apos;Order ID PROD-1001&apos; =~ &apos;Order ID ^[a-zA-z]{4}-[0-9]{4}&apos;</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler if/else" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">def a, b
+
+Random random = new Random()
+
+a = random.next(2)
+b = random.next(3)
+
+if (a &gt; b) {
+	println a + &apos; is greater than &apos; + b
+}
+else if (a == b) {
+	println a + &apos; is equals &apos; + b
+}
+else {
+	println a + &apos; is lesser than &apos; + b
+}
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler switch" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">//Reg Ex
+def a = &quot;Hello Groovy&quot;
+
+switch (a) {
+	case ~/Hello G.*/:
+		println &quot;Contains G&quot;
+		break
+	default:
+		println &quot;Just a String&quot;
+}
+
+//Range
+def b = 12
+
+switch (b) {
+	case 11..15:
+		println &quot;Within the range&quot;
+		break
+	default:
+		println &quot;Integer&quot;		
+}
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler for" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">//for
+for (int i = 1; i &lt;= 10; i++){
+	println i //prints new line
+}
+
+//for in
+def fruits = [&apos;apple&apos;, &apos;orange&apos;, &apos;papaya&apos;]
+
+for(def fruit in fruits){
+	println fruit
+}
+
+//for in maps
+def students = [&quot;Ram&quot; : 98, &quot;Ganesh&quot; : 100, &quot;Siva&quot; : 95];
+
+for(def student in students){
+	println student
+}
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler while" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">//while
+int c = 1
+
+while (c &lt;= 10){
+	println c
+	c++
+}
+assert c == 11
+
+//do while
+do {
+    println c
+    c++
+} while(c &lt;= 20)
+assert c == 21</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group Part 1" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler JMeter Variables ctx" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">//ctx - JMeter Context
+println &apos;***********************************************&apos;
+
+println ctx.getEngine()
+println ctx.getThread()
+println ctx.getThreadGroup()
+println ctx.getThreadNum()
+println ctx.getProperties() //Lists all the properties
+println ctx.getProperties().getProperty(&apos;jmeter.version&apos;)
+println ctx.getVariables().get(&apos;P_USERNAME&apos;) //P_USERNAME is configured in the Test Plan
+
+println &apos;***********************************************&apos;</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler JMeter Variables vars" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">//vars - variables
+println &apos;***********************************************&apos;
+
+println vars.get(&apos;P_USERNAME&apos;)
+vars.put(&apos;P_USERNAME&apos;,&apos;mynewusername&apos;)
+println vars.get(&apos;P_USERNAME&apos;) //Updated variable name
+
+vars.remove(&apos;P_USERNAME&apos;)
+println vars.get(&apos;P_USERNAME&apos;) //Prints null
+
+String PERSON_NAME = &quot;Ram&quot;
+vars.putObject(&apos;PERSON_NAME&apos;,PERSON_NAME);
+println vars.getObject(&apos;PERSON_NAME&apos;)
+
+int PERSON_AGE = 35
+vars.putObject(&apos;PERSON_AGE&apos;,PERSON_AGE.toString());
+println vars.getObject(&apos;PERSON_AGE&apos;)
+
+println &apos;***********************************************&apos;</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler JMeter Variables props" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">//props - properties
+println &apos;***********************************************&apos;
+
+println props.get(&apos;START.MS&apos;)
+println props.get(&apos;remote_hosts&apos;)
+println System.getProperty(&apos;os.name&apos;)
+
+props.put(&apos;remote_hosts&apos;,&apos;127.0.0.1&apos;)
+println props.get(&apos;remote_hosts&apos;)
+
+println &apos;***********************************************&apos;</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
+          <boolProp name="displayJMeterProperties">true</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">true</boolProp>
+        </DebugSampler>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group Part 2" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Simple Controller SampleResult" enabled="false"/>
+        <hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler JMeter Variables SampleResult" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">//SampleResult - various information returned from taking a sample of an entry
+//https://jmeter.apache.org/api/org/apache/jmeter/samplers/SampleResult.html
+
+println &apos;***********************************************&apos;
+
+println SampleResult.getSampleLabel()
+//println SampleResult.getSamplerData()
+println SampleResult.getStartTime()
+println SampleResult.getResponseCode()
+println SampleResult.getResponseMessage()
+println SampleResult.getSampleCount()
+
+println &apos;***********************************************&apos;</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler JMeter Variables SampleResult set" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">//SampleResult - various information returned from taking a sample of an entry
+//https://jmeter.apache.org/api/org/apache/jmeter/samplers/SampleResult.html
+
+println &apos;***********************************************&apos;
+
+SampleResult.setSampleLabel(&apos;Modified Sampler Label&apos;)
+println SampleResult.getSampleLabel()
+//println SampleResult.getSamplerData()
+
+SampleResult.setStartTime(System.currentTimeMillis())
+
+println SampleResult.getStartTime()
+
+SampleResult.setResponseCode(&apos;404&apos;)
+println SampleResult.getResponseCode()
+
+SampleResult.setResponseMessage(&apos;Modified Response Message&apos;)
+println SampleResult.getResponseMessage()
+
+SampleResult.setSampleCount(22)
+println SampleResult.getSampleCount()
+
+println &apos;***********************************************&apos;</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Simple Controller sampler" enabled="false"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">example.com</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path"></stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor sampler" enabled="true">
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="script">//sampler - https://jmeter.apache.org/api/org/apache/jmeter/samplers/Sampler.html
+
+println &apos;***********************************************&apos;
+
+//Get Domain details
+println sampler.getDomain()
+println sampler.getPort()
+println sampler.getProtocol()
+
+//Set Domain details
+sampler.setDomain(&apos;bing.com&apos;)
+sampler.setProtocol(&apos;https&apos;)
+sampler.setPort(443)
+sampler.setAutoRedirects(true)
+
+//Get Domain details
+println sampler.getDomain()
+println sampler.getPort()
+println sampler.getProtocol()
+
+println &apos;***********************************************&apos;</stringProp>
+              <stringProp name="scriptLanguage">groovy</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="jp@gc - Dummy Sampler - prev" enabled="false">
+          <boolProp name="WAITING">true</boolProp>
+          <boolProp name="SUCCESFULL">true</boolProp>
+          <stringProp name="RESPONSE_CODE">200</stringProp>
+          <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+          <stringProp name="REQUEST_DATA">This is my request data.</stringProp>
+          <stringProp name="RESPONSE_DATA">This is my response data.</stringProp>
+          <stringProp name="RESPONSE_TIME">${__Random(50,500)}</stringProp>
+          <stringProp name="LATENCY">${__Random(1,50)}</stringProp>
+          <stringProp name="CONNECT">${__Random(1,5)}</stringProp>
+          <stringProp name="URL"></stringProp>
+          <stringProp name="RESULT_CLASS">org.apache.jmeter.samplers.SampleResult</stringProp>
+        </kg.apc.jmeter.samplers.DummySampler>
+        <hashTree>
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor prev" enabled="true">
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">//SampleResult - various information returned from taking a sample of an entry
+//https://jmeter.apache.org/api/org/apache/jmeter/samplers/SampleResult.html
+
+println &apos;***********************************************&apos;
+
+println prev.getSampleLabel()
+println prev.getSamplerData()
+println prev.getStartTime()
+println prev.getResponseCode()
+println prev.getResponseMessage()
+println prev.getURL()
+println prev.isSuccessful()
+println prev.getSampleCount()
+println prev.getLatency()
+println prev.getTime()
+
+println &apos;***********************************************&apos;</stringProp>
+            <stringProp name="scriptLanguage">groovy</stringProp>
+          </JSR223PostProcessor>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler Log" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">//log - https://www.slf4j.org/api/org/slf4j/Logger.html
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+ 
+println &apos;***********************************************&apos;
+
+println log.isDebugEnabled()
+println log.isInfoEnabled()
+println log.isWarnEnabled()
+println log.isTraceEnabled()
+
+log.info(&apos;The name is &apos; + log.getName())
+log.error(&apos;Error&apos;)
+log.warn(&apos;Warn&apos;)
+
+//log.trace(&apos;Test&apos;)
+log.debug(&apos;Debugging&apos;)
+
+println &apos;***********************************************&apos;</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="My JSR223 Sampler Label" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">println Label
+
+log.info &apos;My sample name is: {}&apos;, Label</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
+          <boolProp name="displayJMeterProperties">true</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">true</boolProp>
+        </DebugSampler>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
+          <boolProp name="displayJMeterProperties">true</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">true</boolProp>
+        </DebugSampler>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
