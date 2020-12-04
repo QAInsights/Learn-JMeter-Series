@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="QAInsights" enabled="true">
+      <stringProp name="TestPlan.comments">NaveenKumar Namachivayam Test Plan</stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="P_USERNAME" elementType="Argument">
+            <stringProp name="Argument.name">P_USERNAME</stringProp>
+            <stringProp name="Argument.value">admin</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler - File IO" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">File f = new File(&quot;demo.txt&quot;)
+f.createNewFile() //create
+
+def lines = f.readLines() //read
+println lines 
+
+def mycontent = &quot;This is my new content.\n&quot;
+f &lt;&lt; mycontent //write
+
+def newlines = f.readLines()
+println newlines
+
+f.delete() //delete</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler - JSON" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+
+def jsonSlurper = new JsonSlurper()
+def myjson = &apos;&apos;&apos;
+{
+  &quot;firstName&quot;: &quot;John&quot;,
+  &quot;lastName&quot; : &quot;doe&quot;,
+  &quot;age&quot;      : 26,
+  &quot;address&quot;  : {
+    &quot;streetAddress&quot;: &quot;naist street&quot;,
+    &quot;city&quot;         : &quot;Nara&quot;,
+    &quot;postalCode&quot;   : &quot;630-0192&quot;
+  },
+  &quot;phoneNumbers&quot;: [
+    {
+      &quot;type&quot;  : &quot;iPhone&quot;,
+      &quot;number&quot;: &quot;0123-4567-8888&quot;
+    },
+    {
+      &quot;type&quot;  : &quot;home&quot;,
+      &quot;number&quot;: &quot;0123-4567-8910&quot;
+    }
+  ]
+}
+&apos;&apos;&apos;
+println &apos;*************************************************&apos;
+def obj = jsonSlurper.parseText(myjson)
+println &apos;First Name is &apos; + obj.firstName
+println &apos;Last Name is &apos; + obj.lastName
+println &apos;Phone Numbers found &apos; + obj.phoneNumbers.size()
+
+//Address
+def addr = obj.address
+addr.each { a -&gt;
+	a.each { println a.key  + &apos;:&apos; + a.value } 
+}
+
+//All Phone Numbers
+def numbers = obj.phoneNumbers
+
+numbers.each { number -&gt;
+	number.each { k, v -&gt; println &quot;${k} : ${v}&quot; }
+}
+println &apos;*************************************************&apos;
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
