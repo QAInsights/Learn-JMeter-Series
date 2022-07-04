@@ -1,0 +1,5 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1656905037149,15,T00_Example_From_192.168.1.200,Non HTTP response code: java.net.BindException,Non HTTP response message: Cannot assign requested address: connect,Thread Group 1-1,text,false,,2335,0,1,1,http://localhost/,0,0,14
+1656905037166,1,T00_Example_From_192.168.1.201,Non HTTP response code: java.net.BindException,Non HTTP response message: Cannot assign requested address: connect,Thread Group 1-1,text,false,,2335,0,1,1,http://localhost/,0,0,0
+1656905037167,1,T00_Example_From_192.168.1.202,Non HTTP response code: java.net.BindException,Non HTTP response message: Cannot assign requested address: connect,Thread Group 1-1,text,false,,2335,0,1,1,http://localhost/,0,0,1
+1656905037170,0,T00_Example_From_192.168.1.200,Non HTTP response code: java.net.BindException,Non HTTP response message: Cannot assign requested address: connect,Thread Group 1-1,text,false,,2335,0,1,1,http://localhost/,0,0,0
