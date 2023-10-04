@@ -55,7 +55,7 @@ def concatString = randomValues.collect { prefix + it }.join(&apos;,&apos;)
 println(concatString.toString())
 
 
-vars.putObject(&quot;concatString&quot;, concatString.toString())
+vars.put(&quot;concatString&quot;, concatString.toString())
 
 </stringProp>
             <stringProp name="scriptLanguage">groovy</stringProp>
